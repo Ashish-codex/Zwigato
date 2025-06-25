@@ -6,13 +6,12 @@
 //
 
 import Foundation
+import Combine
 
 class HomeScreenViewModel: ObservableObject {
     
     @Published var searchItem = ""
-    
     let user = ModelUser(name: "Ashish Prajapati", adderess: "Society 330, Room No. 13, Sector 65, Noida")
-    
     var sampleFeaturedRestaurants = [
         
         ModelRestaurant(name: "BBC", imageName: "bbc", rating: 4.4, deliveryTime: "20-30 mins", cuisine: "Konkan, Chinese, Toandoor, Thai", deal: "₹50 OFF", location: "Borivali 7.3km", tagLine: "There's always a reason to celebrate", description: "Hands down the best biryani place in Mumbai! 🥰 I am a hardcore biryani lover and have had chicken biryani all over Mumbai but didn`t find any place serving such delicious biryani like BBC. Their kebabs are also very tasty and mouth watering.. totally worth the prices. And the ambience is also nice and calm. During weekends it`s a little crowded but I assure that the food is worth the wait 😋"),
@@ -26,6 +25,26 @@ class HomeScreenViewModel: ObservableObject {
         
         ModelRestaurant(name: "Subway", imageName: "subway", rating: 4.6, deliveryTime: "20-30 mins", cuisine: "Italian, Chinese, Mexican, Thai", deal: "₹125 OFF", location: "Kandivali 7.3km", tagLine: "Eat Fresh", description: "Subway updated its slogan in 2000 to align with the growing interest in quality ingredients and transparency, and to emphasize the brand's position as a healthy alternative to other fast food restaurants. The slogan resonated with health-conscious consumers, but over time, Subway faced competition from other restaurants offering a wider range of products."),
     ]
+    var arrRestaurants: [ModelRestaurant] = []
+    private var cancellables = Set<AnyCancellable>()
+    
+    init() {
+        arrRestaurants = sampleFeaturedRestaurants
+        addSubscriber()
+    }
     
     
+    private func addSubscriber(){
+        $searchItem.sink { [weak self] item in
+            
+            guard !item.isEmpty else{
+                self?.arrRestaurants = self?.sampleFeaturedRestaurants ?? []
+                return
+            }
+            
+            self?.arrRestaurants = self?.arrRestaurants
+                .filter(({$0.name.localizedCaseInsensitiveContains(item)})) ?? []
+        }
+        .store(in: &cancellables)
+    }
 }

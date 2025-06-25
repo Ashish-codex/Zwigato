@@ -13,7 +13,7 @@ struct RestaurantMenuScreen: View {
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        VStack{
+        VStack(){
             
             List {
                 ForEach(
@@ -33,6 +33,44 @@ struct RestaurantMenuScreen: View {
                 }
             }
             .listStyle(.plain)
+            
+            if !vmRestaurantMenu.addedToCart.isEmpty{
+                VStack{
+                    VStack{
+                        VStack{
+                            Text("Deal of the Day unlocked!")
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal)
+                        .padding(.vertical, 6)
+                        .background(.cartBackgroundDark)
+                        .font(.subheadline)
+                        
+                        HStack(alignment: .top){
+                            Text("1 Item added")
+                            Spacer()
+                            HStack(spacing:1){
+                                Text("View Cart ")
+                                Image(systemName: "chevron.right")
+                            }
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal)
+                        .padding(.bottom, 10)
+                        .font(.headline)
+                        .background(.cartBackgroundLight)
+                    }
+                    .background(.cartBackgroundLight)
+                    .foregroundStyle(.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                    .padding(.horizontal, 14)
+                    .padding(.vertical, 9)
+                    
+                }
+                .padding(.bottom, 20)
+                .background(.white)
+            }
+            
             
         }
         .sheet(isPresented: $vmRestaurantMenu.isPresentingDetailView, content: { DetailView( selectedRestaurant: vmRestaurantMenu .sampleFeaturedRestaurants[vmRestaurantMenu.onTapCellIndex] )
@@ -68,6 +106,8 @@ struct RestaurantMenuScreen: View {
             }
         }
         .environmentObject(vmRestaurantMenu)
+        .ignoresSafeArea(.container, edges: .bottom)
+        
         
         
     }

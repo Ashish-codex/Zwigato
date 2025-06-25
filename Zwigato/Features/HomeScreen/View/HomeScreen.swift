@@ -19,7 +19,7 @@ struct HomeScreen: View {
             ScrollView {
                 VStack{
                     
-                    ForEach(vmHome.sampleFeaturedRestaurants) { item in
+                    ForEach(vmHome.arrRestaurants) { item in
                         
                         NavigationLink(destination: RestaurantMenuScreen() ) {
                             

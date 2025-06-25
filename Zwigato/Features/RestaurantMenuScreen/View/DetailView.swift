@@ -39,8 +39,7 @@ struct DetailView: View {
                             }
                             
                             AddItemView(
-                                itemCount: vmRestaurantMenu
-                                    .getMenuItemQuantity(item: selectedRestaurant),
+                                itemCount: 0, //vmRestaurantMenu .getMenuItemQuantity(item: selectedRestaurant),
                                 width: 110,
                                 onIncreaseQuantity: {
                                     vmRestaurantMenu
