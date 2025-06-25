@@ -10,6 +10,7 @@ import SwiftUI
 struct RestaurantMenuScreen: View {
     
     @StateObject var vmRestaurantMenu = RestaurantMenuViewModel()
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         VStack{
@@ -36,6 +37,36 @@ struct RestaurantMenuScreen: View {
         }
         .sheet(isPresented: $vmRestaurantMenu.isPresentingDetailView, content: { DetailView( selectedRestaurant: vmRestaurantMenu .sampleFeaturedRestaurants[vmRestaurantMenu.onTapCellIndex] )
         })
+        .navigationBarBackButtonHidden(true)
+        .navigationTitle("Menu")
+        .toolbarBackground(.white, for: .navigationBar)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading){
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }, label: {
+                    VStack{
+                        Image(systemName: "chevron.compact.left")
+                            .resizable()
+                            .frame(width: 11, height: 16)
+                            .fontWeight(.light)
+                            .foregroundStyle(.black.opacity(0.7))
+                            .background(
+                                Circle()
+                                    .fill(.white)
+                                    .frame(width: 36, height: 36)
+                            )
+//                            .offset(x: 25, y: 55)
+                            .shadow(
+                                color: .white.opacity(0.6), radius: 14,
+                                x: 0,
+                                y: -6
+                            )
+                    }
+                    .padding(.horizontal)
+                })
+            }
+        }
         .environmentObject(vmRestaurantMenu)
         
         
@@ -43,5 +74,8 @@ struct RestaurantMenuScreen: View {
 }
 
 #Preview {
-    RestaurantMenuScreen()
+    NavigationStack{
+        RestaurantMenuScreen()
+    }
+    
 }

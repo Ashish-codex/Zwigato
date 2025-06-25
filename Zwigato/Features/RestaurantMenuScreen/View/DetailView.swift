@@ -1,17 +1,16 @@
 //
 //  DetailView.swift
-//  SwiggUI
+//  Zwigato
 //
-//  Created by Ashish Prajapati on 25/12/24.
+//  Created by Ashish Prajapati on 24/106/25.
 //
 
 import SwiftUI
 
 struct DetailView: View {
     
-    let selectedRestaurant: ModelRestaurant
-    @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var vmRestaurantMenu: RestaurantMenuViewModel
+    let selectedRestaurant: ModelRestaurant
     
     var body: some View {
         VStack{
@@ -41,7 +40,11 @@ struct DetailView: View {
                             
                             
                             AddItemView(itemCount: 0) { count in
-                                
+                                vmRestaurantMenu
+                                    .addToCart(
+                                        item: selectedRestaurant,
+                                        quantity: count
+                                    )
                             }
                             .frame(maxWidth: .infinity, alignment: .trailing)
                         }

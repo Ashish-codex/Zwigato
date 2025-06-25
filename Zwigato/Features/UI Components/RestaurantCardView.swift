@@ -1,8 +1,8 @@
 //
 //  VerticalFeaturedRestaurantSection.swift
-//  SwiggUI
+//  Zwigato
 //
-//  Created by Ashish Prajapati on 24/12/24.
+//  Created by Ashish Prajapati on 24/106/25.
 //
 
 import SwiftUI

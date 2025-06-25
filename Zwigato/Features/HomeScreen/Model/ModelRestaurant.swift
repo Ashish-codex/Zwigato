@@ -1,22 +1,23 @@
 //
 //  ModelRestaurant.swift
-//  SwiggUI
+//  Zwigato
 //
-//  Created by Ashish Prajapati on 24/12/24.
+//  Created by Ashish Prajapati on 24/106/25.
 //
 
 import Foundation
 
 
 struct ModelRestaurant: Identifiable {
-    let id = UUID()
-    let name: String
-    let imageName: String
-    let rating: Double
-    let deliveryTime: String
-    let cuisine: String
-    let deal:String
-    let location: String
-    let tagLine: String
-    let description: String
+    var id = UUID()
+    var name: String
+    var imageName: String
+    var rating: Double
+    var deliveryTime: String
+    var cuisine: String
+    var deal:String
+    var location: String
+    var tagLine: String
+    var description: String
+    var quantity: Int = 0
 }

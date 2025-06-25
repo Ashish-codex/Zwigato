@@ -11,6 +11,7 @@ class RestaurantMenuViewModel: ObservableObject{
     
     @Published var isPresentingDetailView: Bool = false
     @Published var onTapCellIndex: Int = 0
+    @Published var addedToCart:[ModelRestaurant] = []
     
     var sampleFeaturedRestaurants = [
         
@@ -25,5 +26,21 @@ class RestaurantMenuViewModel: ObservableObject{
         
         ModelRestaurant(name: "Subway", imageName: "subway", rating: 4.6, deliveryTime: "20-30 mins", cuisine: "Italian, Chinese, Mexican, Thai", deal: "₹125 OFF", location: "Kandivali 7.3km", tagLine: "Eat Fresh", description: "Subway updated its slogan in 2000 to align with the growing interest in quality ingredients and transparency, and to emphasize the brand's position as a healthy alternative to other fast food restaurants. The slogan resonated with health-conscious consumers, but over time, Subway faced competition from other restaurants offering a wider range of products."),
     ]
+    
+    func getMenuItemQuantity(item: ModelRestaurant) -> Int{
+        addedToCart.first(where: ({$0.id == item.id}))?.quantity ?? 0
+    }
+    
+    func addToCart(item: ModelRestaurant, quantity: Int){
+        
+        if let index = addedToCart.firstIndex(where: ({$0.id == item.id})){
+            addedToCart[index].quantity = quantity
+        }else{
+            addedToCart.append(item)
+            if let index = addedToCart.firstIndex(where: ({$0.id == item.id})){
+                addedToCart[index].quantity = quantity
+            }
+        }
+    }
     
 }

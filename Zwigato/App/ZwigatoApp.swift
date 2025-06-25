@@ -11,7 +11,10 @@ import SwiftUI
 struct ZwigatoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack{
+                HomeScreen()
+            }
+            
         }
     }
 }

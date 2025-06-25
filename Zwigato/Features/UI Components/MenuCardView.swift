@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MenuCardView: View {
     
+    @EnvironmentObject var vmRestaurantMenu: RestaurantMenuViewModel
     let modelFeaturedRestaurant: ModelRestaurant
     
     
@@ -89,7 +90,11 @@ struct MenuCardView: View {
             .frame(width: 145, height: 140)
             .cornerRadius(22)
             .overlay(alignment: .bottom) {
-                AddItemView(width: 110)
+                AddItemView(
+                    itemCount: 0,
+                    width: 110, onClick: { updatedCount in
+                        vmRestaurantMenu.addToCart(item: modelFeaturedRestaurant, quantity: updatedCount)
+                    })
                     .offset(y: 20)
                     .shadow(
                         color: .black.opacity(0.2), radius: 14,
