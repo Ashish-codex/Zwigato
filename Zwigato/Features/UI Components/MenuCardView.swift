@@ -90,17 +90,32 @@ struct MenuCardView: View {
             .frame(width: 145, height: 140)
             .cornerRadius(22)
             .overlay(alignment: .bottom) {
+//                AddItemView(
+//                    itemCount: 0,
+//                    width: 110, onClick: { updatedCount in
+//                        vmRestaurantMenu.addToCart(item: modelFeaturedRestaurant, quantity: updatedCount)
+//                    })
+                
+                
                 AddItemView(
-                    itemCount: 0,
-                    width: 110, onClick: { updatedCount in
-                        vmRestaurantMenu.addToCart(item: modelFeaturedRestaurant, quantity: updatedCount)
-                    })
-                    .offset(y: 20)
-                    .shadow(
-                        color: .black.opacity(0.2), radius: 14,
-                        x: 0,
-                        y: 6
-                    )
+                    itemCount: vmRestaurantMenu
+                        .getMenuItemQuantity(item: modelFeaturedRestaurant),
+                    width: 110,
+                    onIncreaseQuantity: {
+                        vmRestaurantMenu
+                            .addToCart(item: modelFeaturedRestaurant)
+                    },
+                    onDecreaseQuantity: {
+                        vmRestaurantMenu
+                            .deleteToCart(item: modelFeaturedRestaurant)
+                    }
+                )
+                .offset(y: 20)
+                .shadow(
+                    color: .black.opacity(0.2), radius: 14,
+                    x: 0,
+                    y: 6
+                )
 
             }
         

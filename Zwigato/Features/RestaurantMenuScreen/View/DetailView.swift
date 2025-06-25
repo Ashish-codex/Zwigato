@@ -38,14 +38,28 @@ struct DetailView: View {
                                     .foregroundStyle(.black)
                             }
                             
+                            AddItemView(
+                                itemCount: vmRestaurantMenu
+                                    .getMenuItemQuantity(item: selectedRestaurant),
+                                width: 110,
+                                onIncreaseQuantity: {
+                                    vmRestaurantMenu
+                                        .addToCart(item: selectedRestaurant)
+                                },
+                                onDecreaseQuantity: {
+                                    vmRestaurantMenu
+                                        .deleteToCart(item: selectedRestaurant)
+                                }
+                            )
+                            .frame(maxWidth: .infinity, alignment: .trailing)
                             
-                            AddItemView(itemCount: 0) { count in
-                                vmRestaurantMenu
-                                    .addToCart(
-                                        item: selectedRestaurant,
-                                        quantity: count
-                                    )
-                            }
+//                            AddItemView(itemCount: 0) { count in
+//                                vmRestaurantMenu
+//                                    .addToCart(
+//                                        item: selectedRestaurant,
+//                                        quantity: count
+//                                    )
+//                            }
                             .frame(maxWidth: .infinity, alignment: .trailing)
                         }
                         

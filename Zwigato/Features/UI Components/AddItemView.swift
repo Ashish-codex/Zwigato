@@ -9,17 +9,19 @@ import SwiftUI
 
 struct AddItemView: View {
     
-    @State var itemCount:Int = 0
+    var itemCount:Int
     var width: CGFloat = 120
     var height: CGFloat = 40
-    var onClick: ((_ updatedCount: Int)->Void)?
+    var onIncreaseQuantity: (()->Void)
+    var onDecreaseQuantity: (()->Void)
     
     var body: some View {
         VStack(alignment: .center){
             if itemCount == 0{
                 Button {
-                    itemCount += 1
-                    onClick?(itemCount)
+//                    itemCount += 1
+//                    onClick?(itemCount)
+                    onIncreaseQuantity()
                 } label: {
                     Text("ADD")
                         .foregroundStyle(.appGreen.opacity(0.7))
@@ -35,11 +37,13 @@ struct AddItemView: View {
                 HStack(alignment: .center, spacing: 0){
                     Spacer()
                     Button {
-                        itemCount -= 1
-                        onClick?(itemCount)
+//                        itemCount -= 1
+//                        onClick?(itemCount)
+                        onDecreaseQuantity()
                     } label: {
-                        Text("-")
-                            .font(.system(size: 30))
+                        Image(systemName: "minus")
+                            .font(.system(size: 16))
+                            .fontWeight(.bold)
                     }
                     .buttonStyle(BorderlessButtonStyle())
                     Spacer()
@@ -47,11 +51,12 @@ struct AddItemView: View {
                         .font(.title2)
                     Spacer()
                     Button {
-                        itemCount += 1
-                        onClick?(itemCount)
+//                        itemCount += 1
+//                        onClick?(itemCount)
+                        onIncreaseQuantity()
                     } label: {
-                        Text("+")
-                            .font(.system(size: 24))
+                        Image(systemName: "plus")
+                            .font(.system(size: 16))
                     }
                     .buttonStyle(BorderlessButtonStyle())
                     Spacer()
@@ -82,5 +87,9 @@ struct AddItemView: View {
 }
 
 #Preview {
-    AddItemView()
+    AddItemView(itemCount: 0, onIncreaseQuantity: {
+        
+    }, onDecreaseQuantity: {
+        
+    })
 }

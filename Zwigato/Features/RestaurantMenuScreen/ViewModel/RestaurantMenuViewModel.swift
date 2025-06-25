@@ -31,16 +31,31 @@ class RestaurantMenuViewModel: ObservableObject{
         addedToCart.first(where: ({$0.id == item.id}))?.quantity ?? 0
     }
     
-    func addToCart(item: ModelRestaurant, quantity: Int){
+    func addToCart(item: ModelRestaurant){
         
         if let index = addedToCart.firstIndex(where: ({$0.id == item.id})){
-            addedToCart[index].quantity = quantity
+            addedToCart[index].quantity += 1
         }else{
-            addedToCart.append(item)
-            if let index = addedToCart.firstIndex(where: ({$0.id == item.id})){
-                addedToCart[index].quantity = quantity
+            var menuItem = item
+            menuItem.quantity = 1
+            addedToCart.append(menuItem)
+        }
+        
+        print("Cart list = \(addedToCart)")
+    }
+    
+    
+    func deleteToCart(item: ModelRestaurant){
+        
+        if let index = addedToCart.firstIndex(where: ({$0.id == item.id})){
+            if addedToCart[index].quantity > 1{
+                addedToCart[index].quantity -= 1
+            }else{
+                addedToCart.remove(at: index)
             }
         }
+        
+        print("Cart list = \(addedToCart)")
     }
     
 }
