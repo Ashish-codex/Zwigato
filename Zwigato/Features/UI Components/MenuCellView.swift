@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct MenuCardView: View {
+struct MenuCellView: View {
     
     @EnvironmentObject var vmRestaurantMenu: RestaurantMenuViewModel
-    let modelFeaturedRestaurant: ModelRestaurant
+    let menuItem: ModelRestaurant.ModelMenuItem
     
     
     var body: some View {
@@ -19,7 +19,7 @@ struct MenuCardView: View {
             VStack(alignment: .leading, spacing: 12){
                 
                 /// Restaurant Name
-                Text(modelFeaturedRestaurant.name)
+                Text(menuItem.name)
                     .lineLimit(2)
                     .font(.title3)
                     .fontWeight(.bold)
@@ -35,14 +35,14 @@ struct MenuCardView: View {
                             .frame(width: 15, height: 15)
                             .foregroundStyle(.appGreen.opacity(0.8))
                             
-                        Text("\(modelFeaturedRestaurant.rating, specifier: "%.1f")")
+                        Text("\(menuItem.rating, specifier: "%.1f")")
                             .font(.headline)
                             .fontWeight(.bold)
 
                     }
                     .foregroundStyle(.black)
                     
-                    Text("₹199")
+                    Text("₹\(menuItem.price)")
                         .font(.system(size: 26))
                         .fontWeight(.bold)
                         .foregroundStyle(.black)
@@ -55,20 +55,20 @@ struct MenuCardView: View {
                 VStack(alignment:.leading, spacing: 2){
                     HStack{
                         Text("🍽️")
-                        Text("\(modelFeaturedRestaurant.cuisine)")
+                        Text("\(menuItem.ingredients)")
                             .font(.headline)
                             .fontWeight(.medium)
                             .lineLimit(1)
                             .foregroundStyle(.black.opacity(0.5))
                     }
                     
-                    HStack{
-                        Text("📍")
-                        Text("\(modelFeaturedRestaurant.location)")
-                            .font(.headline)
-                            .fontWeight(.medium)
-                            .foregroundStyle(.black.opacity(0.5))
-                    }
+//                    HStack{
+//                        Text("📍")
+//                        Text("\(menuItem.location)")
+//                            .font(.headline)
+//                            .fontWeight(.medium)
+//                            .foregroundStyle(.black.opacity(0.5))
+//                    }
                 }
                 
 
@@ -78,15 +78,14 @@ struct MenuCardView: View {
             }
             .padding(.top, 18)
             
-            restaurantImageView
+            menuImageView
         }
         .frame(maxWidth: .infinity, alignment: .leading)
 
     }
     
-    var restaurantImageView: some View{
-        Image(modelFeaturedRestaurant.imageName)
-            .resizable()
+    var menuImageView: some View{
+        ImageLoaderView(urlString: menuItem.imageName)
             .frame(width: 145, height: 140)
             .cornerRadius(22)
             .overlay(alignment: .bottom) {
@@ -99,15 +98,16 @@ struct MenuCardView: View {
                 
                 AddItemView(
                     itemCount: vmRestaurantMenu
-                        .getMenuItemQuantity(item: modelFeaturedRestaurant),
+                        .getMenuItemQuantity(item: menuItem),
                     width: 110,
+                    height: 35,
                     onIncreaseQuantity: {
                         vmRestaurantMenu
-                            .addToCart(item: modelFeaturedRestaurant)
+                            .addItemToCart(item: menuItem)
                     },
                     onDecreaseQuantity: {
                         vmRestaurantMenu
-                            .deleteToCart(item: modelFeaturedRestaurant)
+                            .deleteItemFromCart(item: menuItem)
                     }
                 )
                 .offset(y: 20)
@@ -124,6 +124,7 @@ struct MenuCardView: View {
 }
 
 #Preview {
-    MenuCardView(modelFeaturedRestaurant: ModelRestaurant(name: "BBC", imageName: "bbc", rating: 4.4, deliveryTime: "20-30 mins", cuisine: "Konkan, Chinese, Toandoor, Thai", deal: "₹50 OFF", location: "Borivali 7.3km", tagLine: "", description: ""))
+    MenuCellView(
+        menuItem:AppHelper.arrRestaurantWithMenuItems.first!.menuItem.first!)
         .padding()
 }

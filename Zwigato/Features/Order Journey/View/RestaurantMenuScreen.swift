@@ -9,8 +9,8 @@ import SwiftUI
 
 struct RestaurantMenuScreen: View {
     
-    @StateObject var vmRestaurantMenu = RestaurantMenuViewModel()
-    @Environment(\.presentationMode) var presentationMode
+    @StateObject var vmRestaurantMenu: RestaurantMenuViewModel
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack(){
@@ -18,12 +18,12 @@ struct RestaurantMenuScreen: View {
             List {
                 ForEach(
                     Array(
-                        vmRestaurantMenu.sampleFeaturedRestaurants.enumerated()
+                        vmRestaurantMenu.arrMenuItems.enumerated()
                     ),
                     id: \.offset
                 ) { index, item in
                     
-                    MenuCardView(modelFeaturedRestaurant: item)
+                    MenuCellView(menuItem: item)
                         .background(Color.white.opacity(0.0000001))
                         .padding(.vertical, 14)
                         .onTapGesture {
@@ -34,46 +34,62 @@ struct RestaurantMenuScreen: View {
             }
             .listStyle(.plain)
             
-            if !vmRestaurantMenu.addedToCart.isEmpty{
-                VStack{
+            if !vmRestaurantMenu.arrItemAddedToCart.isEmpty{
+                
+                NavigationLink {
+                    CartScreen()
+                        .environmentObject(vmRestaurantMenu)
+
+                    
+                } label: {
                     VStack{
                         VStack{
-                            Text("Deal of the Day unlocked!")
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.horizontal)
-                        .padding(.vertical, 6)
-                        .background(.cartBackgroundDark)
-                        .font(.subheadline)
-                        
-                        HStack(alignment: .top){
-                            Text("1 Item added")
-                            Spacer()
-                            HStack(spacing:1){
-                                Text("View Cart ")
-                                Image(systemName: "chevron.right")
+                            VStack{
+                                Text("Deal of the Day unlocked!")
                             }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.horizontal)
+                            .padding(.vertical, 6)
+                            .background(.cartBackgroundDark)
+                            .font(.subheadline)
+                            
+                            HStack(alignment: .top){
+                                Text(
+                                    "\(vmRestaurantMenu.getTotalItemQuantityInCart()) Item added"
+                                )
+                                Spacer()
+                                HStack(spacing:1){
+                                    Text("View Cart ")
+                                    Image(systemName: "chevron.right")
+                                }
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.horizontal)
+                            .padding(.bottom, 10)
+                            .font(.headline)
+                            .background(.cartBackgroundLight)
                         }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.horizontal)
-                        .padding(.bottom, 10)
-                        .font(.headline)
                         .background(.cartBackgroundLight)
+                        .foregroundStyle(.white)
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                        .padding(.horizontal, 14)
+                        .padding(.vertical, 9)
+                        
                     }
-                    .background(.cartBackgroundLight)
-                    .foregroundStyle(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                    .padding(.horizontal, 14)
-                    .padding(.vertical, 9)
-                    
+                    .padding(.bottom, 20)
+                    .background(.white)
                 }
-                .padding(.bottom, 20)
-                .background(.white)
+
+                
+                
             }
             
             
         }
-        .sheet(isPresented: $vmRestaurantMenu.isPresentingDetailView, content: { DetailView( selectedRestaurant: vmRestaurantMenu .sampleFeaturedRestaurants[vmRestaurantMenu.onTapCellIndex] )
+        .sheet(
+            isPresented: $vmRestaurantMenu.isPresentingDetailView,
+            content: { MenuDetailScreen(
+                menuItem:vmRestaurantMenu.arrMenuItems[vmRestaurantMenu.onTapCellIndex] )
         })
         .navigationBarBackButtonHidden(true)
         .navigationTitle("Menu")
@@ -81,7 +97,7 @@ struct RestaurantMenuScreen: View {
         .toolbar {
             ToolbarItem(placement: .topBarLeading){
                 Button(action: {
-                    presentationMode.wrappedValue.dismiss()
+                    dismiss()
                 }, label: {
                     VStack{
                         Image(systemName: "chevron.compact.left")
@@ -115,7 +131,9 @@ struct RestaurantMenuScreen: View {
 
 #Preview {
     NavigationStack{
-        RestaurantMenuScreen()
+        RestaurantMenuScreen(
+            vmRestaurantMenu: RestaurantMenuViewModel(arrMenuItems: [])
+        )
     }
     
 }

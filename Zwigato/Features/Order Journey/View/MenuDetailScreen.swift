@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct DetailView: View {
+struct MenuDetailScreen: View {
     
     @EnvironmentObject var vmRestaurantMenu: RestaurantMenuViewModel
-    let selectedRestaurant: ModelRestaurant
+    let menuItem: ModelRestaurant.ModelMenuItem
     
     var body: some View {
         VStack{
@@ -18,47 +18,41 @@ struct DetailView: View {
                 
                 VStack(alignment: .leading){
             
-                    dishImageView
+                    menuImageView
                     
                     VStack(alignment: .leading){
                         
                         HStack(alignment: .top, spacing: 40){
                             VStack(alignment: .leading){
                                 
-                                Text("\(selectedRestaurant.name): \(selectedRestaurant.tagLine)")
+                                Text("\(menuItem.name)")
                                     .lineLimit(2)
                                     .font(.title3)
                                     .fontWeight(.bold)
                                 
                                 Spacer(minLength:8)
                                 
-                                Text(selectedRestaurant.deal)
+                                Text("@ ₹\(menuItem.price)")
                                     .font(.system(size: 18))
                                     .fontWeight(.bold)
                                     .foregroundStyle(.black)
                             }
                             
                             AddItemView(
-                                itemCount: 0, //vmRestaurantMenu .getMenuItemQuantity(item: selectedRestaurant),
-                                width: 110,
+                                itemCount: vmRestaurantMenu .getMenuItemQuantity(item: menuItem),
+                                width: 100,
+                                height: 35,
                                 onIncreaseQuantity: {
                                     vmRestaurantMenu
-                                        .addToCart(item: selectedRestaurant)
+                                        .addItemToCart(item: menuItem)
                                 },
                                 onDecreaseQuantity: {
                                     vmRestaurantMenu
-                                        .deleteToCart(item: selectedRestaurant)
+                                        .deleteItemFromCart(item: menuItem)
                                 }
                             )
                             .frame(maxWidth: .infinity, alignment: .trailing)
                             
-//                            AddItemView(itemCount: 0) { count in
-//                                vmRestaurantMenu
-//                                    .addToCart(
-//                                        item: selectedRestaurant,
-//                                        quantity: count
-//                                    )
-//                            }
                             .frame(maxWidth: .infinity, alignment: .trailing)
                         }
                         
@@ -66,7 +60,7 @@ struct DetailView: View {
                         
                         HStack{
                             Text("🍽️")
-                            Text("\(selectedRestaurant.cuisine)")
+                            Text("\(menuItem.ingredients)")
                                 .font(.headline)
                                 .fontWeight(.medium)
                                 .foregroundStyle(.black.opacity(0.8))
@@ -74,19 +68,19 @@ struct DetailView: View {
                         
                         Spacer(minLength: 6)
                         
-                        HStack{
-                            Text("📍")
-                            Text("\(selectedRestaurant.location)")
-                                .font(.headline)
-                                .fontWeight(.medium)
-                                .foregroundStyle(.black.opacity(0.5))
-                        }
-                        
+//                        HStack{
+//                            Text("📍")
+//                            Text("\(selectedRestaurant.location)")
+//                                .font(.headline)
+//                                .fontWeight(.medium)
+//                                .foregroundStyle(.black.opacity(0.5))
+//                        }
+//                        
                         
                         
                         Spacer(minLength: 20)
                         
-                        Text("\(selectedRestaurant.description)")
+                        Text("\(menuItem.description)")
                             .font(.headline)
                             .fontWeight(.medium)
                             .foregroundStyle(.black.opacity(0.5))
@@ -209,10 +203,9 @@ struct DetailView: View {
     }
     
     
-    var dishImageView: some View{
+    var menuImageView: some View{
         
-        Image(selectedRestaurant.imageName)
-            .resizable()
+        ImageLoaderView(urlString: menuItem.imageName)
             .frame(maxWidth: .infinity)
             .frame(height: 350)
             .overlay(content: {
@@ -225,7 +218,9 @@ struct DetailView: View {
 #Preview {
     
     NavigationStack{
-        DetailView(selectedRestaurant:  ModelRestaurant(name: "BBC", imageName: "bbc", rating: 4.4, deliveryTime: "20-30 mins", cuisine: "Konkan, Chinese, Toandoor, Thai", deal: "₹50 OFF", location: "Borivali 7.3km", tagLine: "There's always a reason to celebrate", description: "Hands down the best biryani place in Mumbai! 🥰 I am a hardcore biryani lover and have had chicken biryani all over Mumbai but didn`t find any place serving such delicious biryani like BBC. Their kebabs are also very tasty and mouth watering.. totally worth the prices. And the ambience is also nice and calm. During weekends it`s a little crowded but I assure that the food is worth the wait 😋Hands down the best biryani place in Mumbai! 🥰 I am a hardcore biryani lover and have had chicken biryani all over Mumbai but didn`t find any place serving such delicious biryani like BBC. Their kebabs are also very tasty and mouth watering.. totally worth the prices. And the ambience is also nice and calm. During weekends it`s a little crowded but I assure that the food is worth the wait 😋Hands down the best biryani place in Mumbai! 🥰 I am a hardcore biryani lover and have had chicken biryani all over Mumbai but didn`t find any place serving such delicious biryani like BBC. Their kebabs are also very tasty and mouth watering.. totally worth the prices. And the ambience is also nice and calm. During weekends it`s a little crowded but I assure that the food is worth the wait 😋Hands down the best biryani place in Mumbai! 🥰 I am a hardcore biryani lover and have had chicken biryani all over Mumbai but didn`t find any place serving such delicious biryani like BBC. Their kebabs are also very tasty and mouth watering.. totally worth the prices. And the ambience is also nice and calm. During weekends it`s a little crowded but I assure that the food is worth the wait 😋"))
+        MenuDetailScreen(
+            menuItem:  AppHelper.arrRestaurantWithMenuItems.first!.menuItem.first!
+        )
     }
     
     

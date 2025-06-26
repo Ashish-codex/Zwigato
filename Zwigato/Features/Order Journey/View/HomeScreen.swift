@@ -17,13 +17,17 @@ struct HomeScreen: View {
             stickyHeaderView
             
             ScrollView {
-                VStack{
+                LazyVStack{
                     
                     ForEach(vmHome.arrRestaurants) { item in
                         
-                        NavigationLink(destination: RestaurantMenuScreen() ) {
+                        NavigationLink(
+                            destination: RestaurantMenuScreen(
+                                vmRestaurantMenu: RestaurantMenuViewModel(
+                                    arrMenuItems: item.menuItem) )
+                        ) {
                             
-                            RestaurantCardView(modelFeaturedRestaurant: item)
+                            RestaurantCellView(modelFeaturedRestaurant: item)
                                 .padding(.vertical)
                                 .padding(.horizontal)
                         }
@@ -53,7 +57,7 @@ struct HomeScreen: View {
                         Image(systemName: "house.fill")
                             .resizable()
                             .frame(width: 18, height: 16)
-                            .foregroundStyle(.appOragne)
+                            .foregroundStyle(AppHelper.appTheme)
                         
                         Text("Home")
                             .font(.headline)

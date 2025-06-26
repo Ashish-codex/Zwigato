@@ -19,13 +19,11 @@ struct AddItemView: View {
         VStack(alignment: .center){
             if itemCount == 0{
                 Button {
-//                    itemCount += 1
-//                    onClick?(itemCount)
                     onIncreaseQuantity()
                 } label: {
                     Text("ADD")
                         .foregroundStyle(.appGreen.opacity(0.7))
-                        .font(.title2)
+                        .font(.subheadline)
                         .fontWeight(.bold)
                         .padding()
                 }
@@ -35,36 +33,50 @@ struct AddItemView: View {
             }else{
                 
                 HStack(alignment: .center, spacing: 0){
-                    Spacer()
+//                    Spacer()
                     Button {
-//                        itemCount -= 1
-//                        onClick?(itemCount)
                         onDecreaseQuantity()
                     } label: {
-                        Image(systemName: "minus")
-                            .font(.system(size: 16))
-                            .fontWeight(.bold)
+                        ZStack{
+                            Image(systemName: "minus")
+                                .font(.system(size: 12))
+                                .fontWeight(.bold)
+                            Image(systemName: "plus")
+                                .font(.system(size: 12))
+                                .opacity(0.0)
+                        }
+                        
                     }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .buttonStyle(BorderlessButtonStyle())
+                    .background(.yellow.opacity(0.001))
+                    
                     Spacer()
+                    
                     Text("\(itemCount)")
-                        .font(.title2)
+                        .font(.subheadline)
+                        .fontWeight(.bold)
+                        .padding(-4)
+                        .lineLimit(1)
+                    
                     Spacer()
+                    
                     Button {
-//                        itemCount += 1
-//                        onClick?(itemCount)
                         onIncreaseQuantity()
                     } label: {
                         Image(systemName: "plus")
-                            .font(.system(size: 16))
+                            .font(.system(size: 12))
                     }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .buttonStyle(BorderlessButtonStyle())
-                    Spacer()
+                    .contentShape(Rectangle())
+                    .background(.yellow.opacity(0.001))
+                    
+//                    Spacer()
                 }
                 .frame(maxHeight: .infinity, alignment: .center)
                 .foregroundStyle(.appGreen.opacity(0.7))
                 .fontWeight(.bold)
-//                .padding()
                 
             }
             
@@ -87,7 +99,7 @@ struct AddItemView: View {
 }
 
 #Preview {
-    AddItemView(itemCount: 0, onIncreaseQuantity: {
+    AddItemView(itemCount: 1, onIncreaseQuantity: {
         
     }, onDecreaseQuantity: {
         

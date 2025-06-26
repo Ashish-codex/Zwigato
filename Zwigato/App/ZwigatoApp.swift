@@ -9,10 +9,12 @@ import SwiftUI
 
 @main
 struct ZwigatoApp: App {
+    
     var body: some Scene {
         WindowGroup {
             NavigationStack{
                 HomeScreen()
+                    .preferredColorScheme(.light)
             }
             
         }

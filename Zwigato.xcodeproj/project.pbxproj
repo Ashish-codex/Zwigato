@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		75E981BA2E0D8A1D0052AD37 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 75E981B92E0D8A1D0052AD37 /* SDWebImageSwiftUI */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		752D758F2E0AA4F4009A00A3 /* Zwigato.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zwigato.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75E981BA2E0D8A1D0052AD37 /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +70,7 @@
 			);
 			name = Zwigato;
 			packageProductDependencies = (
+				75E981B92E0D8A1D0052AD37 /* SDWebImageSwiftUI */,
 			);
 			productName = Zwigato;
 			productReference = 752D758F2E0AA4F4009A00A3 /* Zwigato.app */;
@@ -94,6 +100,9 @@
 			);
 			mainGroup = 752D75862E0AA4F4009A00A3;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				75E981B82E0D8A1D0052AD37 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 752D75902E0AA4F4009A00A3 /* Products */;
 			projectDirPath = "";
@@ -324,6 +333,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		75E981B82E0D8A1D0052AD37 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		75E981B92E0D8A1D0052AD37 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 75E981B82E0D8A1D0052AD37 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 752D75872E0AA4F4009A00A3 /* Project object */;
 }

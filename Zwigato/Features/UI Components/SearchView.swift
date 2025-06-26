@@ -47,7 +47,7 @@ struct SearchBar: View {
             Image(systemName: "mic.fill")
                 .resizable()
                 .frame(width: 13, height: 20)
-                .foregroundStyle(Color.appOragne)
+                .foregroundStyle(AppHelper.appTheme)
                 .padding(.trailing, 6)
             
             
