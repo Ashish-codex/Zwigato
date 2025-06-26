@@ -90,7 +90,7 @@ struct CheckOutScreen: View {
                     .background(
                         isFormValid
                         ? AppHelper.appTheme.opacity(1.0)
-                        : AppHelper.appTheme.opacity(0.69)
+                        : AppHelper.appTheme.opacity(0.59)
                     )
                     .foregroundColor(.white)
                     .cornerRadius(12)
@@ -132,7 +132,11 @@ struct CheckOutScreen: View {
         
         .alert("✅ Order Placed!", isPresented: $orderPlaced) {
             Button("OK", role: .cancel) {
-                
+                name = ""
+                email = ""
+                address = ""
+                dismiss()
+                dismiss()
             }
         } message: {
             Text("Thank you for your order. Your food will arrive soon! 🍽️")

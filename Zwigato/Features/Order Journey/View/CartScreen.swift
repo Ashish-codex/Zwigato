@@ -36,11 +36,6 @@ struct CartScreen: View {
                             .padding(.vertical, 4)
                     }
                 
-//                ForEach(0..<10) { index in
-//                    CartCellView(item: sampleItem)
-//                        .padding(.vertical, 4)
-//                    
-//                }
             }
             .listStyle(.plain)
             
@@ -83,19 +78,9 @@ struct CartScreen: View {
                         RoundedRectangle(cornerRadius: 10)
                             .fill(AppHelper.appTheme)
                     )
-                    .opacity( vmRestaurantMenu.getTotalItemPriceInCart() != 0 ? 1.0 : 0.69)
+                    .opacity( vmRestaurantMenu.getTotalItemPriceInCart() != 0 ? 1.0 : 0.59)
                 })
                 .disabled(vmRestaurantMenu.getTotalItemPriceInCart() == 0)
-                
-                
-                
-                
-//                Button(action: {
-//
-//
-//                }, label: {
-//
-//                })
                 
             }
             .padding()
@@ -131,7 +116,6 @@ struct CartScreen: View {
                                     .fill(.white)
                                     .frame(width: 36, height: 36)
                             )
-//                            .offset(x: 25, y: 55)
                             .shadow(
                                 color: .white.opacity(0.6), radius: 14,
                                 x: 0,
@@ -150,7 +134,6 @@ struct CartScreen: View {
 #Preview {
     NavigationStack{
         CartScreen()
-//        CartScreen(vmRestaurantMenu: RestaurantMenuViewModel())
     }
     
 }

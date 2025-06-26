@@ -9,8 +9,10 @@ import SwiftUI
 
 struct MenuCellView: View {
     
-    @EnvironmentObject var vmRestaurantMenu: RestaurantMenuViewModel
     let menuItem: ModelRestaurant.ModelMenuItem
+    var itemCount:Int
+    var onIncreaseQuantity: (()->Void)
+    var onDecreaseQuantity: (()->Void)
     
     
     var body: some View {
@@ -89,25 +91,15 @@ struct MenuCellView: View {
             .frame(width: 145, height: 140)
             .cornerRadius(22)
             .overlay(alignment: .bottom) {
-//                AddItemView(
-//                    itemCount: 0,
-//                    width: 110, onClick: { updatedCount in
-//                        vmRestaurantMenu.addToCart(item: modelFeaturedRestaurant, quantity: updatedCount)
-//                    })
-                
-                
                 AddItemView(
-                    itemCount: vmRestaurantMenu
-                        .getMenuItemQuantity(item: menuItem),
+                    itemCount: itemCount,
                     width: 110,
                     height: 35,
                     onIncreaseQuantity: {
-                        vmRestaurantMenu
-                            .addItemToCart(item: menuItem)
+                        onIncreaseQuantity()
                     },
                     onDecreaseQuantity: {
-                        vmRestaurantMenu
-                            .deleteItemFromCart(item: menuItem)
+                        onDecreaseQuantity()
                     }
                 )
                 .offset(y: 20)
@@ -125,6 +117,10 @@ struct MenuCellView: View {
 
 #Preview {
     MenuCellView(
-        menuItem:AppHelper.arrRestaurantWithMenuItems.first!.menuItem.first!)
+        menuItem: AppHelper.arrRestaurantWithMenuItems.first!.menuItem.first!,
+        itemCount: 0,
+        onIncreaseQuantity: {},
+        onDecreaseQuantity: {}
+    )
         .padding()
 }

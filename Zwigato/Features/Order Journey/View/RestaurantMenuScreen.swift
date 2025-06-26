@@ -23,13 +23,23 @@ struct RestaurantMenuScreen: View {
                     id: \.offset
                 ) { index, item in
                     
-                    MenuCellView(menuItem: item)
-                        .background(Color.white.opacity(0.0000001))
-                        .padding(.vertical, 14)
-                        .onTapGesture {
-                            vmRestaurantMenu.onTapCellIndex = index
-                            vmRestaurantMenu.isPresentingDetailView = true
+                    MenuCellView(
+                        menuItem: item,
+                        itemCount: vmRestaurantMenu
+                            .getMenuItemQuantity(item: item),
+                        onIncreaseQuantity: {
+                            vmRestaurantMenu.addItemToCart(item: item)
+                        },
+                        onDecreaseQuantity: {
+                            vmRestaurantMenu.deleteItemFromCart(item: item)
                         }
+                    )
+                    .background(Color.white.opacity(0.0000001))
+                    .padding(.vertical, 14)
+                    .onTapGesture {
+                        vmRestaurantMenu.onTapCellIndex = index
+                        vmRestaurantMenu.isPresentingDetailView = true
+                    }
                 }
             }
             .listStyle(.plain)

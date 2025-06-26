@@ -54,21 +54,11 @@ struct CartCellView: View {
 }
 
 #Preview {
-//    CartCellView(
-//        item:ModelRestaurant(
-//            name: "McDonald's",
-//            imageName: "mcdonald",
-//            rating: 4.1,
-//            deliveryTime: "20-30 mins",
-//            cuisine: "Burgger, Cocoak Float, Pizza, Thai",
-//            deal: "₹100 OFF",
-//            location: "Dahisar 2.3km",
-//            tagLine: "I'm Lovin' It",
-//            description: "The McDonald's slogan introduced in 2003 is the current slogan of the brand. The company didn't make any further changes to its tagline, as it garnered immense popularity in the new millennium and continues to do so.",
-//            price: 199),
-//        itemCount: 0,
-//        onIncreaseQuantity: { },
-//        onDecreaseQuantity: { }
-//    )
-//    .padding(.horizontal)
+    CartCellView(
+        item:AppHelper.arrRestaurantWithMenuItems.first!.menuItem.first!,
+        itemCount: 0,
+        onIncreaseQuantity: { },
+        onDecreaseQuantity: { }
+    )
+    .padding(.horizontal)
 }

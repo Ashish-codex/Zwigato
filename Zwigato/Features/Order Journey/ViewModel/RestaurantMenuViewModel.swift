@@ -21,10 +21,13 @@ class RestaurantMenuViewModel: ObservableObject{
     }
     
     
+    ///Returns number of quantities for single menu itme
     func getMenuItemQuantity(item: ModelRestaurant.ModelMenuItem) -> Int{
         arrItemAddedToCart.first(where: ({$0.id == item.id}))?.quantity ?? 0
     }
     
+    
+    ///Addes into cart, if already then increase the quantity of that menu
     func addItemToCart(item: ModelRestaurant.ModelMenuItem){
         
         if let index = arrItemAddedToCart.firstIndex(where: ({$0.id == item.id})){
@@ -43,6 +46,7 @@ class RestaurantMenuViewModel: ObservableObject{
     }
     
     
+    ///Deletes the quantity of single menu item, if the quantity is 0 it will delete the item from cart
     func deleteItemFromCart(item: ModelRestaurant.ModelMenuItem){
         
         if let index = arrItemAddedToCart.firstIndex(where: ({$0.id == item.id})){
@@ -61,10 +65,14 @@ class RestaurantMenuViewModel: ObservableObject{
         
     }
     
+    
+    /// Returns the sum of all menu items's quantity
     func getTotalItemQuantityInCart() -> Int{
         arrItemAddedToCart.reduce(0, ({$0 + $1.quantity}))
     }
     
+    
+    /// Returns the sum of all menu items's per quantity price
     func getTotalItemPriceInCart() -> Int{
         arrItemAddedToCart.reduce(0, ({$0 + $1.perQuantityPrice}))
     }
