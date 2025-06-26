@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct CheckOutScreen: View {
+    
+    @EnvironmentObject var vmRestaurantMenu: RestaurantMenuViewModel
     @State private var name: String = ""
     @State private var email: String = ""
     @State private var address: String = ""
-    @State private var orderPlaced: Bool = false
+    @State private var msgTitle: String = ""
+    @State private var msgDescription: String = ""
+    @State private var isOrderPlacedClick: Bool = false
     
     private var isFormValid: Bool {
         !name.trimmingCharacters(in: .whitespaces).isEmpty &&
@@ -80,7 +84,7 @@ struct CheckOutScreen: View {
 
 
             Button(action: {
-                placeOrder()
+                willOrderPlaced()
             }) {
                 Text("Place Order")
                     .font(.title3)
@@ -130,23 +134,35 @@ struct CheckOutScreen: View {
             }
         }
         
-        .alert("✅ Order Placed!", isPresented: $orderPlaced) {
-            Button("OK", role: .cancel) {
-                name = ""
-                email = ""
-                address = ""
-                dismiss()
-                dismiss()
-            }
+        .alert(msgTitle,
+            isPresented: $isOrderPlacedClick) {
+            Button("Okay", role: .cancel) {didOrderPlaced()}
+                
         } message: {
-            Text("Thank you for your order. Your food will arrive soon! 🍽️")
+            Text(msgDescription)
         }
         
     }
-
-    func placeOrder() {
-        orderPlaced = true
+    
+    func willOrderPlaced(){
+        isOrderPlacedClick = true
+        msgTitle = vmRestaurantMenu.arrItemAddedToCart.isEmpty
+        ? "Sorry!"
+        : "Order Placed"
+        
+        msgDescription = vmRestaurantMenu.arrItemAddedToCart.isEmpty
+        ? "Your cart is empty, add menu into your cart."
+        : "Thank you for your order. Your food will arrive soon!"
     }
+
+    func didOrderPlaced() {
+        name = ""
+        email = ""
+        address = ""
+        vmRestaurantMenu.arrItemAddedToCart.removeAll()
+//        dismiss()
+    }
+    
 }
 
 

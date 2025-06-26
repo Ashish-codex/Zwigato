@@ -24,7 +24,7 @@ struct CartCellView: View {
                         .lineLimit(1)
                     
                     Text("\(item.ingredients)")
-                        .font(.subheadline)
+                        .font(.caption)
                         .fontWeight(.medium)
                         .foregroundStyle(.black.opacity(0.5))
                         .lineLimit(1)

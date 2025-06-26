@@ -23,7 +23,7 @@ struct MenuCellView: View {
                 /// Restaurant Name
                 Text(menuItem.name)
                     .lineLimit(2)
-                    .font(.title3)
+                    .font(.headline)
                     .fontWeight(.bold)
                     .foregroundStyle(.black)
                 
@@ -34,18 +34,18 @@ struct MenuCellView: View {
                     HStack{
                         Image(systemName: "star.fill")
                             .resizable()
-                            .frame(width: 15, height: 15)
+                            .frame(width: 12, height: 12)
                             .foregroundStyle(.appGreen.opacity(0.8))
                             
                         Text("\(menuItem.rating, specifier: "%.1f")")
-                            .font(.headline)
+                            .font(.subheadline)
                             .fontWeight(.bold)
 
                     }
                     .foregroundStyle(.black)
                     
                     Text("₹\(menuItem.price)")
-                        .font(.system(size: 26))
+                        .font(.system(size: 22))
                         .fontWeight(.bold)
                         .foregroundStyle(.black)
                         .padding(.top, 1)
@@ -58,7 +58,7 @@ struct MenuCellView: View {
                     HStack{
                         Text("🍽️")
                         Text("\(menuItem.ingredients)")
-                            .font(.headline)
+                            .font(.subheadline)
                             .fontWeight(.medium)
                             .lineLimit(1)
                             .foregroundStyle(.black.opacity(0.5))

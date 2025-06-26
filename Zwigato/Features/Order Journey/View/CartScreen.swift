@@ -59,6 +59,7 @@ struct CartScreen: View {
                 
                 NavigationLink (destination: {
                         CheckOutScreen()
+                        .environmentObject(vmRestaurantMenu)
                 }, label: {
                     
                     HStack{
@@ -126,6 +127,7 @@ struct CartScreen: View {
                 })
             }
         }
+        
         
         
     }

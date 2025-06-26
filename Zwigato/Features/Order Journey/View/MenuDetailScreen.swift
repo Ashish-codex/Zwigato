@@ -61,9 +61,9 @@ struct MenuDetailScreen: View {
                         HStack{
                             Text("🍽️")
                             Text("\(menuItem.ingredients)")
-                                .font(.headline)
+                                .font(.caption)
                                 .fontWeight(.medium)
-                                .foregroundStyle(.black.opacity(0.8))
+                                .foregroundStyle(.black.opacity(0.5))
                         }
                         
                         Spacer(minLength: 6)
@@ -81,8 +81,8 @@ struct MenuDetailScreen: View {
                         Spacer(minLength: 20)
                         
                         Text("\(menuItem.description)")
-                            .font(.headline)
-                            .fontWeight(.medium)
+                            .font(.subheadline)
+                            .fontWeight(.regular)
                             .foregroundStyle(.black.opacity(0.5))
                         
                     }
