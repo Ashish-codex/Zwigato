@@ -13,6 +13,17 @@ This is a simple, mocked with static data end-to-end food ordering app built usi
 
 ---
 
+## 🏗️ Architecture
+The app uses MVVM (Model-View-ViewModel) architecture for a clean separation of concerns.
+
+| Layer         | Description                                                                           |
+| ------------- | ------------------------------------------------------------------------------------- |
+| **Model**     | `ModelRestaurant`, `ModelUser` – plain Swift structs                            |
+| **ViewModel** | Handles business logic and state updates (e.g., `RestaurantMenuViewModel`,`HomeScreenViewModel`, |
+| **View**      | SwiftUI views like `HomeView`, `MenuScreen`, `CartScreen`, `CheckoutScreen`           |
+
+
+
 ## 🚀 How to Build & Run
 
 1. Clone the repository:
