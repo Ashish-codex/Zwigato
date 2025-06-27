@@ -121,7 +121,6 @@ class AppHelper{
         ),
         
         
-        
         ModelRestaurant(
             name: "Pizza Hut",
             imageName: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2025/6/9/f4a5eee6-19ff-4b54-8554-24720103e18a_9864.JPG",
@@ -323,8 +322,228 @@ class AppHelper{
                         price: 188
                     ),
             ]
-        )
+        ),
         
         
+        ModelRestaurant(
+            name: "Chinese Wok",
+            imageName: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/e0839ff574213e6f35b3899ebf1fc597",
+            rating: 4.5,
+            deliveryTime: "35-40 mins",
+            cuisine: "Chinese, Asian, Tibetan, Desserts",
+            location: "Santacruz",
+            deal: "55 OFF",
+            menuItem: [
+                ModelRestaurant.ModelMenuItem(
+                        name:"Hunan Paneer Dry - Mini",
+                        imageName:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/6/7/a05bf8ea-ee68-4fd8-be01-1ac10f940fa5_c8e1a500-cd36-4f60-a771-1e5cf22e73c4.jpg_compressed",
+                        rating: 4.1,
+                        ingredients: "Serves 1 | (Spicy) Cubes Of Paneer, Onion, Capsicum Tossed With Spicy & Savory flavors of Hunan Sauce.",
+                        description: "Juicy chicken marinated in yogurt and spices, grilled in a tandoor, offering a smoky and aromatic flavor.",
+                        price: 469
+                    ),
+                
+                ModelRestaurant.ModelMenuItem(
+                        name:"Schezwan Paneer Dry - Full",
+                        imageName:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/6/7/e3d760e8-a686-446b-887e-0a3256b077f4_1d4af440-1e94-440e-8e46-762968fb77a1.jpg_compressed",
+                        rating: 3.8,
+                        ingredients: "basmati rice, chicken or mutton (or vegetables), yogurt, onions, ginger-garlic paste, and various spices like turmeric, chili powder, and garam masala",
+                        description: "Serves 1 | (Spicy) Cubes Of Paneer, Onion, Capsicum Tossed With Schezwan Sauce.",
+                        price: 445
+                    ),
+                
+                ModelRestaurant.ModelMenuItem(
+                        name:"Chicken Fried Rice (500 Ml)",
+                        imageName:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/12/25/e010650a-014a-4f7e-893d-13540636b254_4729e06b-62df-48dc-86a3-9271e7ff00da.jpeg",
+                        rating: 5.0,
+                        ingredients: "basmati rice, chicken or mutton (or vegetables), yogurt, onions, ginger-garlic paste, and various spices like turmeric, chili powder, and garam masala",
+                        description: "A flavorful chicken fried rice, made with basmati rice, tender chicken pieces, and vegetables, served in 500ml, offering a simple yet satisfying meal.",
+                        price: 260
+                    ),
+                
+                ModelRestaurant.ModelMenuItem(
+                        name:"Veg Schezwan Noodles - Half (500 ml).",
+                        imageName:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/5/21/73a542b5-bfd0-416c-a860-a795ac1deee5_dccd896c-f67b-4a6c-a000-d1c343e5f6ea.jpg_compressed",
+                        rating: 4.0,
+                        ingredients: "basmati rice, chicken or mutton (or vegetables), yogurt, onions, ginger-garlic paste, and various spices like turmeric, chili powder, and garam masala",
+                        description: "Serves 1 | Noodles Tossed With Mixed Veggies In Schezwan Sauce (Onions, Cabbage & Carrot) Garnished With Spring Onion",
+                        price: 314
+                    ),
+                
+                ModelRestaurant.ModelMenuItem(
+                        name:"Veg Chinese Fried Rice - Half (500 ml).",
+                        imageName:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/6/7/cd329ac9-c1c4-4d0e-ac59-911bd2c5e0a0_2292a3a7-5b4c-4f56-9a74-5184766af366.jpg_compressed",
+                        rating: 4.2,
+                        ingredients: "basmati rice, chicken or mutton (or vegetables), yogurt, onions, ginger-garlic paste, and various spices like turmeric, chili powder, and garam masala",
+                        description: "Serves 1 | Rice tossed with carrot, french beans & baby corn. Garnished with spring onion.",
+                        price: 188
+                    ),
+                
+                ModelRestaurant.ModelMenuItem(
+                        name:"Hunan Chicken Bowl",
+                        imageName:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/6/7/1436da15-945f-4188-87eb-bb74ea582fc8_12c33af8-513e-4282-bbb2-5e5a169d99b7.jpg",
+                        rating: 4.1,
+                        ingredients: "basmati rice, chicken or mutton (or vegetables), yogurt, onions, ginger-garlic paste, and various spices like turmeric, chili powder, and garam masala",
+                        description: "Serves 1 | (Spicy) Chicken, Onion, Capsicum Tossed In Spicy & Savory Hunan Sauce, Served With Choice Of Rice/ Noodle.",
+                        price: 469
+                    ),
+                
+                ModelRestaurant.ModelMenuItem(
+                        name:"Hunan Paneer Dry - Mini",
+                        imageName:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/6/7/a05bf8ea-ee68-4fd8-be01-1ac10f940fa5_c8e1a500-cd36-4f60-a771-1e5cf22e73c4.jpg_compressed",
+                        rating: 4.1,
+                        ingredients: "Serves 1 | (Spicy) Cubes Of Paneer, Onion, Capsicum Tossed With Spicy & Savory flavors of Hunan Sauce.",
+                        description: "Juicy chicken marinated in yogurt and spices, grilled in a tandoor, offering a smoky and aromatic flavor.",
+                        price: 469
+                    ),
+                
+                ModelRestaurant.ModelMenuItem(
+                        name:"Schezwan Paneer Dry - Full",
+                        imageName:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/6/7/e3d760e8-a686-446b-887e-0a3256b077f4_1d4af440-1e94-440e-8e46-762968fb77a1.jpg_compressed",
+                        rating: 3.8,
+                        ingredients: "basmati rice, chicken or mutton (or vegetables), yogurt, onions, ginger-garlic paste, and various spices like turmeric, chili powder, and garam masala",
+                        description: "Serves 1 | (Spicy) Cubes Of Paneer, Onion, Capsicum Tossed With Schezwan Sauce.",
+                        price: 445
+                    ),
+                
+                ModelRestaurant.ModelMenuItem(
+                        name:"Chicken Fried Rice (500 Ml)",
+                        imageName:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/12/25/e010650a-014a-4f7e-893d-13540636b254_4729e06b-62df-48dc-86a3-9271e7ff00da.jpeg",
+                        rating: 5.0,
+                        ingredients: "basmati rice, chicken or mutton (or vegetables), yogurt, onions, ginger-garlic paste, and various spices like turmeric, chili powder, and garam masala",
+                        description: "A flavorful chicken fried rice, made with basmati rice, tender chicken pieces, and vegetables, served in 500ml, offering a simple yet satisfying meal.",
+                        price: 260
+                    ),
+                
+                ModelRestaurant.ModelMenuItem(
+                        name:"Veg Schezwan Noodles - Half (500 ml).",
+                        imageName:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/5/21/73a542b5-bfd0-416c-a860-a795ac1deee5_dccd896c-f67b-4a6c-a000-d1c343e5f6ea.jpg_compressed",
+                        rating: 4.0,
+                        ingredients: "basmati rice, chicken or mutton (or vegetables), yogurt, onions, ginger-garlic paste, and various spices like turmeric, chili powder, and garam masala",
+                        description: "Serves 1 | Noodles Tossed With Mixed Veggies In Schezwan Sauce (Onions, Cabbage & Carrot) Garnished With Spring Onion",
+                        price: 314
+                    ),
+                
+                ModelRestaurant.ModelMenuItem(
+                        name:"Veg Chinese Fried Rice - Half (500 ml).",
+                        imageName:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/6/7/cd329ac9-c1c4-4d0e-ac59-911bd2c5e0a0_2292a3a7-5b4c-4f56-9a74-5184766af366.jpg_compressed",
+                        rating: 4.2,
+                        ingredients: "basmati rice, chicken or mutton (or vegetables), yogurt, onions, ginger-garlic paste, and various spices like turmeric, chili powder, and garam masala",
+                        description: "Serves 1 | Rice tossed with carrot, french beans & baby corn. Garnished with spring onion.",
+                        price: 188
+                    ),
+                
+                ModelRestaurant.ModelMenuItem(
+                        name:"Hunan Chicken Bowl",
+                        imageName:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/6/7/1436da15-945f-4188-87eb-bb74ea582fc8_12c33af8-513e-4282-bbb2-5e5a169d99b7.jpg",
+                        rating: 4.1,
+                        ingredients: "basmati rice, chicken or mutton (or vegetables), yogurt, onions, ginger-garlic paste, and various spices like turmeric, chili powder, and garam masala",
+                        description: "Serves 1 | (Spicy) Chicken, Onion, Capsicum Tossed In Spicy & Savory Hunan Sauce, Served With Choice Of Rice/ Noodle.",
+                        price: 469
+                    ),
+            ]
+        ),
+        
+        
+        ModelRestaurant(
+            name: "Subway",
+            imageName: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/RX_THUMBNAIL/IMAGES/VENDOR/2025/6/12/2ac821c4-27b3-4f6e-a14b-da399fed9d71_8655.jpg",
+            rating: 4.2,
+            deliveryTime: "35-40 mins",
+            cuisine: "sandwich, Salads, wrap, Healthy Food",
+            location: "Malad",
+            deal: "20% OFF",
+            menuItem: [
+                ModelRestaurant.ModelMenuItem(
+                        name:"Double Egg n' Cheese Omelette Sandwich",
+                        imageName:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2025/3/6/1fbbe8ab-c2c8-4673-bd8b-246a0e3648df_bb4097be-ef76-4cc8-a0c9-38dc7e9c1a87.png",
+                        rating: 4.1,
+                        ingredients: "Serves 1 | (Spicy) Cubes Of Paneer, Onion, Capsicum Tossed With Spicy & Savory flavors of Hunan Sauce.",
+                        description: "Serves 1 |A classic for a reason. Enjoy protein rich double omelette with Cheese, topped with Chiili mayo in a freshly baked bread. Serving Size: 15 cm -230g/366kcal, 30 cm -460g/732kcal Allergens -Contains wheat, rye, barley oats, milk, soy, egg.",
+                        price: 469
+                    ),
+                
+                ModelRestaurant.ModelMenuItem(
+                        name:"Chicken Keema Melt",
+                        imageName:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2025/3/6/7a871898-e530-4026-b622-7b6de9b381c0_7d79ea57-1931-4f3b-b4ba-cc8473324d95.png",
+                        rating: 3.8,
+                        ingredients: "basmati rice, chicken or mutton (or vegetables), yogurt, onions, ginger-garlic paste, and various spices like turmeric, chili powder, and garam masala",
+                        description: "Hot and cheesy toasted sub with 1.5x chicken keema, real mozz cheese, onion, capsicum, chili mayo and cheese slice. Serving size: 15cm - 233 g/569 kcal, 30cm - 466 g/1138 kcal.  Allergens - Contains cereals containing gluten, milk, soy.",
+                        price: 445
+                    ),
+                
+                ModelRestaurant.ModelMenuItem(
+                        name:"Cheesy American BBQ",
+                        imageName:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2025/3/6/cdb1211e-b0ad-40b2-82dc-d18000946bfc_05a614ff-7f01-4b4b-93d6-808ccc931a22.png",
+                        rating: 5.0,
+                        ingredients: "basmati rice, chicken or mutton (or vegetables), yogurt, onions, ginger-garlic paste, and various spices like turmeric, chili powder, and garam masala",
+                        description: "Hot toasted sub loaded with 1.5x filling and real mozz cheese, topped with BBQ sauce, capsicum, onion, gherkins, eggless mayo and cheese slice. Serving size: 15cm - 230 g/457 kcal, 30cm - 460 g/914 kcal.? Allergens - Contains cereals containing gluten, milk, soy.",
+                        price: 260
+                    ),
+                
+                ModelRestaurant.ModelMenuItem(
+                        name:"Cheesy Paneer Tikka",
+                        imageName:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2025/3/6/718a859f-14f9-4a6e-80c2-82309982afb5_2d2e8df6-3594-4cab-8d18-2f16c180038f.png",
+                        rating: 4.0,
+                        ingredients: "basmati rice, chicken or mutton (or vegetables), yogurt, onions, ginger-garlic paste, and various spices like turmeric, chili powder, and garam masala",
+                        description: "Double the paneer, with real mozz cheese. Indulge in hot cheesy paneer melt loaded with paneer, tangy tandoori sauce, fresh veggies and cheese slice. Serving size: 15cm - 299 g/678 kcal, 30cm - 598 g/1356 kcal.  Allergens - Contains cereals containing gluten, milk, soy.",
+                        price: 314
+                    ),
+                
+                ModelRestaurant.ModelMenuItem(
+                        name:"Cheesy Chicken Tikka",
+                        imageName:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2025/3/6/9e6c9ee5-a10f-43a1-8a4d-6592565ab0f5_e301de9a-dda8-4ba7-bbaf-150b29b16c3c.png",
+                        rating: 4.2,
+                        ingredients: "basmati rice, chicken or mutton (or vegetables), yogurt, onions, ginger-garlic paste, and various spices like turmeric, chili powder, and garam masala",
+                        description: "Double the chicken, with real mozz cheese. Indulge in hot cheesy chicken tikka sub loaded with chicken, tandoori sauce, fresh veggies and cheese. Serving size: 15cm - 299 g/654 kcal, 30cm - 598g/1308?kcal.? Allergens - Contains cereals containing gluten, milk, soy, cashew nuts.",
+                        price: 188
+                    ),
+                
+                ModelRestaurant.ModelMenuItem(
+                        name:"Double Egg n' Cheese Omelette Sandwich",
+                        imageName:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2025/3/6/1fbbe8ab-c2c8-4673-bd8b-246a0e3648df_bb4097be-ef76-4cc8-a0c9-38dc7e9c1a87.png",
+                        rating: 4.1,
+                        ingredients: "Serves 1 | (Spicy) Cubes Of Paneer, Onion, Capsicum Tossed With Spicy & Savory flavors of Hunan Sauce.",
+                        description: "Serves 1 |A classic for a reason. Enjoy protein rich double omelette with Cheese, topped with Chiili mayo in a freshly baked bread. Serving Size: 15 cm -230g/366kcal, 30 cm -460g/732kcal Allergens -Contains wheat, rye, barley oats, milk, soy, egg.",
+                        price: 469
+                    ),
+                
+                ModelRestaurant.ModelMenuItem(
+                        name:"Chicken Keema Melt",
+                        imageName:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2025/3/6/7a871898-e530-4026-b622-7b6de9b381c0_7d79ea57-1931-4f3b-b4ba-cc8473324d95.png",
+                        rating: 3.8,
+                        ingredients: "basmati rice, chicken or mutton (or vegetables), yogurt, onions, ginger-garlic paste, and various spices like turmeric, chili powder, and garam masala",
+                        description: "Hot and cheesy toasted sub with 1.5x chicken keema, real mozz cheese, onion, capsicum, chili mayo and cheese slice. Serving size: 15cm - 233 g/569 kcal, 30cm - 466 g/1138 kcal.  Allergens - Contains cereals containing gluten, milk, soy.",
+                        price: 445
+                    ),
+                
+                ModelRestaurant.ModelMenuItem(
+                        name:"Cheesy American BBQ",
+                        imageName:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2025/3/6/cdb1211e-b0ad-40b2-82dc-d18000946bfc_05a614ff-7f01-4b4b-93d6-808ccc931a22.png",
+                        rating: 5.0,
+                        ingredients: "basmati rice, chicken or mutton (or vegetables), yogurt, onions, ginger-garlic paste, and various spices like turmeric, chili powder, and garam masala",
+                        description: "Hot toasted sub loaded with 1.5x filling and real mozz cheese, topped with BBQ sauce, capsicum, onion, gherkins, eggless mayo and cheese slice. Serving size: 15cm - 230 g/457 kcal, 30cm - 460 g/914 kcal.? Allergens - Contains cereals containing gluten, milk, soy.",
+                        price: 260
+                    ),
+                
+                ModelRestaurant.ModelMenuItem(
+                        name:"Cheesy Paneer Tikka",
+                        imageName:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2025/3/6/718a859f-14f9-4a6e-80c2-82309982afb5_2d2e8df6-3594-4cab-8d18-2f16c180038f.png",
+                        rating: 4.0,
+                        ingredients: "basmati rice, chicken or mutton (or vegetables), yogurt, onions, ginger-garlic paste, and various spices like turmeric, chili powder, and garam masala",
+                        description: "Double the paneer, with real mozz cheese. Indulge in hot cheesy paneer melt loaded with paneer, tangy tandoori sauce, fresh veggies and cheese slice. Serving size: 15cm - 299 g/678 kcal, 30cm - 598 g/1356 kcal.  Allergens - Contains cereals containing gluten, milk, soy.",
+                        price: 314
+                    ),
+                
+                ModelRestaurant.ModelMenuItem(
+                        name:"Cheesy Chicken Tikka",
+                        imageName:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2025/3/6/9e6c9ee5-a10f-43a1-8a4d-6592565ab0f5_e301de9a-dda8-4ba7-bbaf-150b29b16c3c.png",
+                        rating: 4.2,
+                        ingredients: "basmati rice, chicken or mutton (or vegetables), yogurt, onions, ginger-garlic paste, and various spices like turmeric, chili powder, and garam masala",
+                        description: "Double the chicken, with real mozz cheese. Indulge in hot cheesy chicken tikka sub loaded with chicken, tandoori sauce, fresh veggies and cheese. Serving size: 15cm - 299 g/654 kcal, 30cm - 598g/1308?kcal.? Allergens - Contains cereals containing gluten, milk, soy, cashew nuts.",
+                        price: 188
+                    ),
+            ]
+        ),
     ]
 }
