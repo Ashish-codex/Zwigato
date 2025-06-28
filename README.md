@@ -1,4 +1,4 @@
-# 🍽️ Zwigato, A Food Ordering App – SwiftUI
+# 🍽️ Zwigato, A Dummy Food Ordering App – SwiftUI
 
 This is a simple, mocked with static data end-to-end food ordering app built using **SwiftUI**. It includes core features such as restaurant listing, menu selection, cart management, checkout flow.
 
