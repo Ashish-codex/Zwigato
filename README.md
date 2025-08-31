@@ -34,20 +34,7 @@ The app uses MVVM (Model-View-ViewModel) architecture for a clean separation of 
 
 ## 📱 Screens
 
-<p float="left">
-   
-   <img width="190" height="640" alt="IMG_1308" src="https://github.com/user-attachments/assets/cca1d0a0-60dc-47a6-bb0d-c79bd27d8594" /> 
- 
-   <img width="190" height="640" alt="IMG_1310" src="https://github.com/user-attachments/assets/8c4b8a5f-c443-4c53-861e-c1242f5cc013" />
-
-   <img width="190" height="640" alt="IMG_1312" src="https://github.com/user-attachments/assets/fdf6cb91-4db7-4513-8076-acf115e2c608" />
-
-   <img width="190" height="640" alt="IMG_1311" src="https://github.com/user-attachments/assets/067a493e-95aa-48f4-9714-c0c00b1725b8" />
-
-</p>
-
-
-
+<img width="1000" height="800" alt="Shot" src="https://github.com/user-attachments/assets/34cfc55f-bc14-46f5-9b6a-89d3978f1ecc" />
 
 
 Created with ❤️ using SwiftUI.
